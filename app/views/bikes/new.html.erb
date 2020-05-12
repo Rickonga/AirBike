@@ -1,0 +1,17 @@
+<h1>New bike</h1>
+
+<%= form_for(@bike) do |f| %>
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.submit %>
+<% end %>
+
+<!-- REMBEMBER category_id as well as user_id -->
