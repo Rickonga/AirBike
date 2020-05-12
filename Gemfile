@@ -26,7 +26,7 @@ gem 'devise'
 gem 'pundit'
 
 # Used for Cloudinary setup
-
+gem 'cloudinary', '~> 1.12.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
