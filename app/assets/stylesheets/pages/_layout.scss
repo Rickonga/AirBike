@@ -1,0 +1,15 @@
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: red;
+}
+
+.main-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.page-wraper {
+  display: flex;
+  height: 100vh;
+}
