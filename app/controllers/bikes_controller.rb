@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_bike, only: %i[show edit update]
+  before_action :set_bike, only: %i[show edit update destroy]
 
   def index
     @bikes = policy_scope(Bike)
@@ -21,6 +21,12 @@ class BikesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    authorize @bike
+    @bike.destroy
+    redirect_to root_path
   end
 
   private
