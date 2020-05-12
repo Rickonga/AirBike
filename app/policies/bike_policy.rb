@@ -8,4 +8,8 @@ class BikePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    user == record.user || user.admin?
+  end
 end
