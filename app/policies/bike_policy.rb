@@ -9,4 +9,16 @@ class BikePolicy < ApplicationPolicy
     true
     # OR ?? user == record.user || user.admin?
   end
+
+  def show?
+    true
+  end
+
+  def update?
+    user == record.user || user.admin?
+  end
+
+  def destroy?
+    user == record.user || user.admin?
+  end
 end

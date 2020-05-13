@@ -26,15 +26,18 @@ radl = Bike.create([{ user: user, model: "101", price: 15, description: "The def
 
 
 file = URI.open('https://www.mtbici.it/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/a/r/aria_e-road.jpg')
-bike = Bike.create(model: "Aria E-Road 28'' 11V Bianchi",
-                brand: "Bianchi",
-                description: "The Aria e-Road electric bike has an all carbon frame with aerodynamic
+bike = Bike.create!(
+    model: "Aria E-Road 28'' 11V Bianchi",
+    brand: "Bianchi",
+    description: "The Aria e-Road electric bike has an all carbon frame with aerodynamic
                 lines and uses the Ebikemotion X35 V.2 technology. The Ebikemotion X35 motor, mounted
                  in the rear hub, is the most compact and lightweight in the world and also very powerful in that it develops
                   40 Nm of torque! The battery can support up to 1200 meters of altitude with its power.",
-                address: "Fraunhoferstraße 33, 80687 Munich",
-                price: 4000,
-                user: user,
-                category: category
-                )
+    address: "Fraunhoferstraße 33, 80687 Munich",
+    price: 4000,
+    user: user,
+    category: category
+    )
+
+
 bike.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
