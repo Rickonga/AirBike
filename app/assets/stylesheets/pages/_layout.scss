@@ -1,0 +1,28 @@
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: red;
+}
+
+.main-container {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.page-wraper {
+  display: flex;
+  height: 100vh;
+}
+
+.container-map {
+  background-color: green;
+  flex-grow: 1;
+  height: 250px;
+  position: sticky;
+}
+
+.container-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16 px;
+}
