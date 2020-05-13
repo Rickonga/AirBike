@@ -3,13 +3,12 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
 
   def index
-    @bikes = policy_scope(Bike)
-    @flats = Bike.geocoded # returns flats with coordinates
+    @bikes = policy_scope(Bike.geocoded)
 
-    @markers = @flats.map do |flat|
+    @markers = @bikes.map do |bike|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: bike.latitude,
+        lng: bike.longitude
       }
     end
   end

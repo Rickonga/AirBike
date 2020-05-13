@@ -22,6 +22,12 @@
   margin: 0;
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
 
 .card-trip .card-trip-infos {
   padding: 16px;
