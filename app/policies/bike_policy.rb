@@ -5,6 +5,11 @@ class BikePolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+    # OR ?? user == record.user || user.admin?
+  end
+
   def show?
     true
   end
