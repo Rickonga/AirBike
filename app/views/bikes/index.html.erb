@@ -15,17 +15,19 @@
       <h1>Smiling bikes</h1>
       <div>
         <% @bikes.each do |bike| %>
-          <div class="card-trip">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= bike.model %></h2>
-                <p><%= bike.description[1..200] %></p>
+          <%= link_to bike_path(bike) do %>
+            <div class="card-trip">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= bike.model %></h2>
+                  <p><%= bike.description[1..200] %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= bike.price %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
               </div>
-              <h2 class="card-trip-pricing"><%= bike.price %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
