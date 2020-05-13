@@ -16,13 +16,17 @@
       <div>
         <% @bikes.each do |bike| %>
           <div class="card-trip">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <% if bike.photo.attached? %>
+              <%= cl_image_tag bike.photo.key %>
+            <% else %>
+              <%= image_tag "bike_default.png" %>
+            <% end %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= bike.model %></h2>
                 <p><%= bike.description[1..200] %></p>
               </div>
-              <h2 class="card-trip-pricing"><%= bike.price %></h2>
+              <h2 class="card-trip-pricing"><%= bike.price %>€</h2>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
           </div>
