@@ -11,33 +11,41 @@ Bike.destroy_all
 Category.destroy_all
 User.destroy_all
 
-user = User.create(name: "Victor", password: "123456", email: "victor@pissendekuh.de")
+user = User.new(name: "Riccardo", email: "riccardo@lewagon.com", password: "password")
+user.save
+user1 = User.new(name: "Victor", email: "victor@lewagon.com", password: "password")
+user1.save
+user2 = User.new(name: "Benedikt", email: "benedikt@lewagon.com", password: "password")
+user2.save
+user3 = User.new(name: "admin", email: "admin@lewagon", password: "password")
+user3.admin = true
+user3.save
 
-category = Category.create(name: "Mountain Bike")
+categories = ["Road Bike", "Cyclocross Bike", "Touring Bike", "Adventure Road Bike", "Triathlon/Time Trial Bike", "Fitness Bike", "Track/Fixed-Gear Bikes", "Mountain Bikes", "Hybrid Bikes", "Dual-Sport Bikes", "Cruiser Bikes", "Flat-Foot Comfort Bikes", "City Bikes", "BMX Bikes", "Folding Bikes", "Recumbent Bikes", "Tandem Bikes", "Adult Tricycles"]
 
-radl = Bike.create([{ user: user, model: "101", price: 15, description: "The definition of a bicycle is a two-wheeled vehicle with one wheel in front of the other which is propelled using foot pedals.
-  A two-wheeled vehicle that you pedal is an example of a bicycle.
-  Bicycle is defined as to ride a two-wheeled vehicle that you propel forward by pedaling with your feet.
-  When you ride a two-wheeled vehicle
-  (also called a bicycle), this is an example of a time when you bicycle.", category: category},
-   { user: user, model: "35E0554", price: 150, description: "this bike
-  does this and that and it is very convienient and nice and it will impress your parents and all people around.",
-  category: category}])
+categories.each do |e|
+  Category.create(name: e)
+end
 
+
+radl = Bike.create([
+                  { user: User.first,
+                    model: "101", price: 15,
+                    description: "The definition of a bicycle is a two-wheeled vehicle with one wheel in front of the other which is propelled using foot pedals. A two-wheeled vehicle that you pedal is an example of a bicycle. Bicycle is defined as to ride a two-wheeled vehicle that you propel forward by pedaling with your feet. When you ride a two-wheeled vehicle (also called a bicycle), this is an example of a time when you bicycle.",
+                    category: Category.first},
+                  { user: User.second,
+                    model: "35E0554",
+                    price: 150,
+                    description: "this bike does this and that and it is very convienient and nice and it will impress your parents and all people around.",
+                    category: Category.second}])
 
 file = URI.open('https://www.mtbici.it/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/a/r/aria_e-road.jpg')
-bike = Bike.create!(
-    model: "Aria E-Road 28'' 11V Bianchi",
-    brand: "Bianchi",
-    description: "The Aria e-Road electric bike has an all carbon frame with aerodynamic
-                lines and uses the Ebikemotion X35 V.2 technology. The Ebikemotion X35 motor, mounted
-                 in the rear hub, is the most compact and lightweight in the world and also very powerful in that it develops
-                  40 Nm of torque! The battery can support up to 1200 meters of altitude with its power.",
-    address: "Fraunhoferstraße 33, 80687 Munich",
-    price: 4000,
-    user: user,
-    category: category
-    )
-
+bike = Bike.create!(model: "Aria E-Road 28'' 11V Bianchi",
+                brand: "Bianchi",
+                description: "The Aria e-Road electric bike has an all carbon frame with aerodynamic lines and uses the Ebikemotion X35 V.2 technology. The Ebikemotion X35 motor, mounted in the rear hub, is the most compact and lightweight in the world and also very powerful in that it develops 40 Nm of torque! The battery can support up to 1200 meters of altitude with its power.",
+                address: "Fraunhoferstraße 33, 80687 Munich",
+                price: 4000,
+                user: User.third,
+                category: Category.third)
 
 bike.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
