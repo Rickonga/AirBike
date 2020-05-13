@@ -4,6 +4,14 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
+    @flats = Bike.geocoded # returns flats with coordinates
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def new
