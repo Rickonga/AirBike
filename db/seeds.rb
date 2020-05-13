@@ -17,7 +17,7 @@ user1 = User.new(name: "Victor", email: "victor@lewagon.com", password: "passwor
 user1.save
 user2 = User.new(name: "Benedikt", email: "benedikt@lewagon.com", password: "password")
 user2.save
-user3 = User.new(name: "admin", email: "admin@lewagon", password: "password")
+user3 = User.new(name: "admin", email: "admin@lewagon.com", password: "password")
 user3.admin = true
 user3.save
 

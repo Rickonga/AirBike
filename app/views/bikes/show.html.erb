@@ -1,1 +1,7 @@
 <h1><%= @bike.model %></h1>
+<% if policy(@bike).update? %>
+  <%= link_to "Edit", edit_bike_path(@bike) %>
+<% end %>
+<% if policy(@bike).destroy? %>
+  <%= link_to "Delete", bike_path(@bike), method: :delete %>
+<% end %>

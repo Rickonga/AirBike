@@ -15,10 +15,20 @@ class BikePolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user || user.admin?
+    user_owns_record? || user_is_admin?
   end
 
   def destroy?
-    user == record.user || user.admin?
+    user_owns_record? || user_is_admin?
+  end
+
+  private
+
+  def user_owns_record?
+    record.user == user
+  end
+
+  def user_is_admin?
+    user.nil? ? false : user.admin?
   end
 end
