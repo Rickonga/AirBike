@@ -1,7 +1,30 @@
-<h1><%= @bike.model %></h1>
+<h1>Bike <%= @bike.model %></h1>
+
+<ul>
+  <li>
+    <td>
+      Description:
+    </td>
+    <td>
+      <%= @bike.description %>
+    </td>
+  </li>
+  <li>
+    <td>
+      Price per day:
+    </td>
+    <td>
+      <%= @bike.price %> €
+    </td>
+  </li>
+</ul>
+
 <% if policy(@bike).update? %>
   <%= link_to "Edit", edit_bike_path(@bike) %>
 <% end %>
 <% if policy(@bike).destroy? %>
   <%= link_to "Delete", bike_path(@bike), method: :delete %>
 <% end %>
+
+<%= link_to 'Edit', edit_bike_path(@bike) %>
+<%= link_to 'Back', root_path %>
