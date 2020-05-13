@@ -4,4 +4,9 @@ class BikePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    true
+    # OR ?? user == record.user || user.admin?
+  end
 end

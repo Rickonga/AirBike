@@ -15,8 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    true
-    # OR ?? user == record.user || user.admin?
+    false
   end
 
   def new?
