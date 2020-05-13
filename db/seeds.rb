@@ -11,18 +11,26 @@ Bike.destroy_all
 Category.destroy_all
 User.destroy_all
 
-user = User.new(name: "Riccardo", email: "riccardo@lewagon.com", password: "password")
-user.save
-user1 = User.new(name: "Victor", email: "victor@lewagon.com", password: "password")
-user1.save
-user2 = User.new(name: "Benedikt", email: "benedikt@lewagon.com", password: "password")
-user2.save
-user3 = User.new(name: "admin", email: "admin@lewagon.com", password: "password")
-user3.admin = true
-user3.save
+user1 = User.create(name: "Riccardo", email: "riccardo@lewagon.com", password: "password")
+user2 = User.create(name: "Victor", email: "victor@lewagon.com", password: "password")
+user3 = User.create(name: "Benedikt", email: "benedikt@lewagon.com", password: "password")
+user4 = User.new(name: "admin", email: "admin@lewagon.com", password: "password")
+user4.admin = true
+user4.save
+user5 = User.create(name: "Charly", email: "charly@lewagon.com", password: "password")
+user6 = User.create(name: "Johnson", email: "boris@lewagon.com", password: "password")
+user7 = User.create(name: "Trump", email: "donald@lewagon.com", password: "password")
+
+user_img5 = URI.open("https://image.gala.de/22119266/uncropped-0-0/515262c62f5409fb3075018d0620201c/Ph/charlie-sheen.jpg")
+user_img6 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Boris_Johnson_official_portrait_%28cropped%29.jpg/440px-Boris_Johnson_official_portrait_%28cropped%29.jpg")
+user_img7 = URI.open("https://images.unsplash.com/photo-1580128660010-fd027e1e587a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60")
+
+user5.photo.attach(io: user_img5, filename: 'nes.png', content_type: 'image/png')
+user6.photo.attach(io: user_img6, filename: 'nes.png', content_type: 'image/png')
+user7.photo.attach(io: user_img7, filename: 'nes.png', content_type: 'image/png')
+
 
 categories = ["Road Bike", "Cyclocross Bike", "Touring Bike", "Adventure Road Bike", "Triathlon/Time Trial Bike", "Fitness Bike", "Track/Fixed-Gear Bikes", "Mountain Bikes", "Hybrid Bikes", "Dual-Sport Bikes", "Cruiser Bikes", "Flat-Foot Comfort Bikes", "City Bikes", "BMX Bikes", "Folding Bikes", "Recumbent Bikes", "Tandem Bikes", "Adult Tricycles"]
-
 categories.each do |e|
   Category.create(name: e)
 end
