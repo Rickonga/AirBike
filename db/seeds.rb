@@ -47,4 +47,5 @@ bike = Bike.create!(model: "Aria E-Road 28'' 11V Bianchi",
                 price: 4000,
                 user: User.third,
                 category: Category.third)
+
 bike.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
