@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 gem 'pundit'
+gem 'geocoder'
 
 # Used for Cloudinary setup
 gem 'cloudinary', '~> 1.12.0'
