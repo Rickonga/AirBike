@@ -43,6 +43,10 @@ class BikesController < ApplicationController
 
   def show
     authorize @bike
+    @marker = {
+      lat: @bike.latitude,
+      lng: @bike.longitude
+    }
   end
 
   def edit
