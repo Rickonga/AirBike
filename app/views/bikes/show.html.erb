@@ -45,9 +45,11 @@
 
   </div>
 
-  <div class="card">
+  <div class="card p-3">
     <h3>Book this bike</h3>
-    <%= link_to "BOOK", "#", class: "btn btn-flat" %>
+    <h4>From:</h4>
+  <%= render './shared/booking-date' %>
+  <%= link_to "BOOK", "#", class: "btn btn-flat" %>
   </div>
 
 </div>

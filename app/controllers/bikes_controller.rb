@@ -47,6 +47,7 @@ class BikesController < ApplicationController
       lat: @bike.latitude,
       lng: @bike.longitude
     }
+    @booking = Booking.new
   end
 
   def edit
