@@ -9,7 +9,7 @@
 <div class="container" style="margin-top: 16px;">
   <%= render "pages/searchbar" %>
   <% if params[:query].present? && !@bikes.empty? %>
-  <h1>Results for <%= params[:query] %></h1>
+  <h1 class="subheader-index">Results for <%= params[:query] %></h1>
   <% end %>
   <div class="cards">
     <% @bikes.each do |bike| %>
@@ -23,7 +23,7 @@
           <div class="card-trip-infos">
             <div>
               <h2><%= bike.model %></h2>
-              <p><%= bike.description[0..70] %>...</p>
+              <p><%= bike.category.name %></p>
             </div>
             <h2 class="card-trip-pricing"><%= bike.price %>€/Day</h2>
             <% if bike.user.photo.attached? %>
@@ -40,7 +40,7 @@
 
 <% if @bikes.empty? %>
   <div class="custom-index-container">
-    <h1 class="">0 entries found for <%= params[:query] %></h1>
+    <h1 class="subheader-index">0 entries found for <%= params[:query] %></h1>
     <i class="fas fa-search icon-size-color-lense"></i>
   </div>
 <% end %>
