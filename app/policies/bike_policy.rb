@@ -22,6 +22,10 @@ class BikePolicy < ApplicationPolicy
     user_owns_record? || user_is_admin?
   end
 
+  def mybikes?
+    true
+  end
+
   private
 
   def user_owns_record?
