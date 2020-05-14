@@ -16,20 +16,10 @@
         <li><b>Model </b> <%= @bike.model %></li>
         <li><b>Description</b> <%= @bike.description %></li>
         <li><b>Address</b> <%= @bike.address %></li>
-        <li><td>Brand</b> <%= @bike.brand %></li>
-        <li><b>Price per day</b><%= @bike.price %> €</li>
-        <li>
-          <td><b>Cateroy</b></td>
-          <td><%= @bike.category_id %></td>
-        </li>
-        <li>
-          <td><b>Owner</b></td>
-          <td><%= @bike.user_id %></td>
-        </li>
-        <li>
-          <td><b>Coordinates</b></td>
-          <td><%= @bike.latitude %> <%= @bike.longitude %></td>
-        </li>
+        <li><b>Brand</b> <%= @bike.brand %></li>
+        <li><b>Price per day</b> <%= @bike.price %> €</li>
+        <li><b>Cateroy</b> <%= @bike.category_id %></li>
+        <li><b>Owner</b> <%= @bike.user_id %></li>
       </ul>
     </div>
 
@@ -40,9 +30,8 @@
       <% if policy(@bike).destroy? %>
         <%= link_to "Delete", bike_path(@bike), method: :delete %>
       <% end %>
-      <%= link_to "back to ?", root_path, class: "btn btn-flat" %>
+      <%= link_to "Back to all bikes", bike_path(@bike), class: "btn btn-flat" %>
     </div>
-
   </div>
 
   <div class="card p-3">
@@ -63,11 +52,3 @@
     <%= image_tag "bike_default.png" %>
   <% end %>
 </div>
-
-
-
-
-
-
-
-

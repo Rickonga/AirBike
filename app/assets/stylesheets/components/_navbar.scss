@@ -28,3 +28,16 @@
     font-size: 3vh;
   }
 }
+
+#custom-navbar {
+  h1 {
+    margin-bottom: 0.0rem;
+    color: orange;
+    &:hover{
+      color: grey;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}

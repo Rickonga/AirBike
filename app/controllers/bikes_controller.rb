@@ -69,6 +69,18 @@ class BikesController < ApplicationController
     redirect_to root_path
   end
 
+  def mybikes
+    @bikes = Bike.geocoded.where(user: current_user)
+    authorize @bikes
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
+    render 'bikes/index'
+  end
+
   private
 
   def bike_params
