@@ -34,12 +34,23 @@
     </div>
   </div>
 
-  <div class="card p-3">
-    <h3>Book this bike</h3>
-    <%= render './shared/booking-date' %>
-    <p><%= @bike.price %>/€ day</p>
-    <h4># days: <%= @days = 4 %></h4>
-    <h4>Total price: <%= total_price = @bike.price * @days %> €</h4>
+  <div class="card p-3 mr-3">
+    <div>
+      <h3>Book this bike</h3>
+      <%= render './shared/booking-date' %>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <p>Price per day: </p>
+      <p><b><%= @bike.price %>€</b></p>
+    </div>
+    <div class="d-flex w-100 justify-content-between border-bottom">
+      <p>Number of days:</p>
+      <p><b><%= @days = 4 %></b></p>
+    </div>
+    <div class="d-flex w-100 pt-4 justify-content-between">
+      <p><b>Total price: </b></p>
+      <p><b><%= total_price = @bike.price * @days %>€</b></p>
+    </div>
   </div>
 
 </div>
