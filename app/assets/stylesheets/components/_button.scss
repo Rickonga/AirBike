@@ -1,4 +1,4 @@
-.btn-ghost {
+.searchbar-btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
@@ -8,24 +8,24 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-ghost:hover {
+.searchbar-btn-ghost:hover {
   opacity: 1;
 }
 
-.btn-flat {
+.searchbar-btn-flat {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #97B3FB;
+  background: #74D4C0;
   transition: background 0.3s ease;
 }
 
-.btn-flat:hover {
-  background: #5E72AD;
+.searchbar-btn-flat:hover {
+  background: #6AC1B0;
   color: white;
 }
 
-.btn-gradient {
+.searchbar-btn-gradient {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
@@ -35,7 +35,7 @@
   border: 1px solid #0F60C4;
 }
 
-.btn-gradient:hover {
+.searchbar-btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }

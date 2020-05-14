@@ -6,8 +6,11 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-<div class="container">
-  <h1>Smiling bikes</h1>
+<div class="container" style="margin-top: 16px;">
+  <%= render "pages/searchbar" %>
+  <% if params[:query].present? && !@bikes.empty? %>
+  <h1>Results for <%= params[:query] %></h1>
+  <% end %>
   <div class="cards">
     <% @bikes.each do |bike| %>
       <%= link_to bike_path(bike) do %>
@@ -20,7 +23,7 @@
           <div class="card-trip-infos">
             <div>
               <h2><%= bike.model %></h2>
-              <p><%= bike.description[0..200] %></p>
+              <p><%= bike.description[0..70] %>...</p>
             </div>
             <h2 class="card-trip-pricing"><%= bike.price %>€/Day</h2>
             <% if bike.user.photo.attached? %>
@@ -35,3 +38,9 @@
   </div>
 </div>
 
+<% if @bikes.empty? %>
+  <div class="custom-index-container">
+    <h1 class="">0 entries found for <%= params[:query] %></h1>
+    <i class="fas fa-search icon-size-color-lense"></i>
+  </div>
+<% end %>
