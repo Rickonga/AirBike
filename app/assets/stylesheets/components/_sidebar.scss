@@ -1,17 +1,18 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: #c7fcd6;
+.sidebar {
+  h1 {
+    margin-bottom: 0.0rem;
+    color: orange;
+  }
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+      background-color: white;
+    }
+  }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-}
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .btn-sidebar {
+    padding: 10px;
+    border-radius: rounded
+  }
 }
