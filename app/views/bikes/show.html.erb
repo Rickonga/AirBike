@@ -47,9 +47,10 @@
 
   <div class="card p-3">
     <h3>Book this bike</h3>
-    <h4>From:</h4>
-  <%= render './shared/booking-date' %>
-  <%= link_to "BOOK", "#", class: "btn btn-flat" %>
+    <%= render './shared/booking-date' %>
+    <p><%= @bike.price %>/€ day</p>
+    <h4># days: <%= @days = 4 %></h4>
+    <h4>Total price: <%= total_price = @bike.price * @days %> €</h4>
   </div>
 
 </div>
