@@ -3,10 +3,9 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
 
   def index
-    if params[:search][:query].present?
+    if params[:query].present?
       sql_query = "model ILIKE :query OR address ILIKE :query"
-      @bikes = policy_scope(Bike.geocoded.where(sql_query, query: "%#{params[:search][:query]}%"))
-
+      @bikes = policy_scope(Bike.geocoded.where(sql_query, query: "%#{params[:query]}%"))
       @markers = @bikes.map do |bike|
         {
           lat: bike.latitude,
@@ -36,7 +35,7 @@ class BikesController < ApplicationController
     authorize @bike
 
     if @bike.save
-      redirect_to root_path
+      redirect_to bike_path(@bike)
     else
       render :new
     end
