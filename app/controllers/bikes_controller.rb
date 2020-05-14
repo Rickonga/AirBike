@@ -3,13 +3,24 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
 
   def index
-    @bikes = policy_scope(Bike.geocoded)
+    if params[:query].present?
+      sql_query = "model ILIKE :query OR address ILIKE :query"
+      @bikes = policy_scope(Bike.geocoded.where(sql_query, query: "%#{params[:query]}%"))
+      @markers = @bikes.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude
+        }
+      end
+    else
+      @bikes = policy_scope(Bike.geocoded)
 
-    @markers = @bikes.map do |bike|
-      {
-        lat: bike.latitude,
-        lng: bike.longitude
-      }
+      @markers = @bikes.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude
+        }
+      end
     end
   end
 
@@ -24,7 +35,7 @@ class BikesController < ApplicationController
     authorize @bike
 
     if @bike.save
-      redirect_to root_path
+      redirect_to bike_path(@bike)
     else
       render :new
     end
