@@ -1,0 +1,41 @@
+.container-map {
+  background-color: green;
+  flex-grow: 1;
+  height: 250px;
+  position: sticky;
+}
+
+.container-card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 16px;
+}
+
+.container-card ul {
+  list-style: none;
+}
+
+.photo-gallery img {
+  max-width:100%;
+  height:auto;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-gap: 16px;
+}
+
+
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #1BCB7F;
+  color: white;
+}

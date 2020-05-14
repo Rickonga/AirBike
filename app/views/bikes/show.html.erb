@@ -1,7 +1,70 @@
-<h1><%= @bike.model %></h1>
-<% if policy(@bike).update? %>
-  <%= link_to "Edit", edit_bike_path(@bike) %>
-<% end %>
-<% if policy(@bike).destroy? %>
-  <%= link_to "Delete", bike_path(@bike), method: :delete %>
-<% end %>
+<div class="container-map">
+  <div id="map"
+       style="width: 100%; height: 100%;"
+       data-marker="<%= @marker.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+<div class="container-card">
+
+  <div class="card">
+    <h1><%= @bike.model %></h1>
+
+    <div>
+      <ul>
+        <li><b>Model </b> <%= @bike.model %></li>
+        <li><b>Description</b> <%= @bike.description %></li>
+        <li><b>Address</b> <%= @bike.address %></li>
+        <li><td>Brand</b> <%= @bike.brand %></li>
+        <li><b>Price per day</b><%= @bike.price %> €</li>
+        <li>
+          <td><b>Cateroy</b></td>
+          <td><%= @bike.category_id %></td>
+        </li>
+        <li>
+          <td><b>Owner</b></td>
+          <td><%= @bike.user_id %></td>
+        </li>
+        <li>
+          <td><b>Coordinates</b></td>
+          <td><%= @bike.latitude %> <%= @bike.longitude %></td>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <% if policy(@bike).update? %>
+        <%= link_to "Edit", edit_bike_path(@bike) %>
+      <% end %>
+      <% if policy(@bike).destroy? %>
+        <%= link_to "Delete", bike_path(@bike), method: :delete %>
+      <% end %>
+      <%= link_to "back to ?", root_path, class: "btn btn-flat" %>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <h3>Book this bike</h3>
+    <%= link_to "BOOK", "#", class: "btn btn-flat" %>
+  </div>
+
+</div>
+
+<div id="photo-gallery">
+  <h2>Gallery view</h2>
+  <% if @bike.photo.attached? %>
+    <%= cl_image_tag @bike.photo.key %>
+  <% else %>
+    <%= image_tag "bike_default.png" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
