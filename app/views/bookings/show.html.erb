@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="card p-3 mr-3">
+    <div>
+      <h1 class="mb-5">Congratulations for your booking!</h1>
+      <h3 class="mb-3">You booked <%= @bike.model %>></h3>
+    </div>
+    <div class="d-flex align-items-right">
+      <%= link_to "Back to all bikes", bikes_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+
+  <div class="card p-3 mr-3">
+    <h3>Booking details: </h3>
+    <p><b>Booking number: </b> <%= @booking.id %></p>
+    <div class="p-3 border">
+      <p><b>Price per day: </b> <%= @bike.price %> €</p>
+      <p><b>Number of days: </b> <%= @days = (@booking.end_date - @booking.start_date).to_i + 1 %></p>
+      <h5><b>Total price: <%= @bike.price * @days %> €</b></h5>
+    </div>
+    <div class="p-3 border">
+      <p><b>Pick-up date: </b> <%= @booking.start_date %></p>
+      <p><b>Drop-off date: </b> <%= @booking.end_date %></p>
+      <p><b>Address: </b> <%= @bike.address %></p>
+    </div>
+  </div>
+  <div class="container-map w-100">
+    <div id="map"
+       style="width: 100%; height: 100%;"
+       data-markers="<%= @marker.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <div class="card p-3 mr-3">
+    <h3>Bike details:</h3>
+    <p><b>Model </b> <%= @bike.model %></p>
+    <p><b>Description</b> <%= @bike.description %></p>
+    <p><b>Brand</b> <%= @bike.brand %></p>
+    <p><b>Category</b> <%= @bike.category_id %></p>
+    <p><b>Bike owner name</b> <%= @bike.user_id %></p>
+  </div>
+
+  <div class="card p-3 mr-3">
+    <div id="photo-gallery">
+    <h3>Bike's picture:</h3>
+    <% if @bike.photo.attached? %>
+      <%= cl_image_tag @bike.photo.key %>
+    <% else %>
+      <div class="w-100">
+        <%= image_tag "bike_default.png" %>
+      </div>
+    <% end %>
+  </div>
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+
