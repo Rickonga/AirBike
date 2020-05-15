@@ -10,7 +10,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.price = @bike.price
-    # authorize @bike
+    @booking.user = current_user
+    authorize @booking
+    if @booking.save
+      redirect_to bike_path(@bike)
+    else
+      render "bikes/show"
+    end
   end
 
   private
