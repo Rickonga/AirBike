@@ -18,7 +18,7 @@
         <li><b>Address</b> <%= @bike.address %></li>
         <li><b>Brand</b> <%= @bike.brand %></li>
         <li><b>Price per day</b> <%= @bike.price %> €</li>
-        <li><b>Cateroy</b> <%= @bike.category_id %></li>
+        <li><b>Category</b> <%= @bike.category_id %></li>
         <li><b>Owner</b> <%= @bike.user_id %></li>
       </ul>
     </div>
@@ -30,7 +30,9 @@
       <% if policy(@bike).destroy? %>
         <%= link_to "Delete", bike_path(@bike), method: :delete %>
       <% end %>
-      <%= link_to "Back to all bikes", bike_path(@bike), class: "btn btn-flat" %>
+      <%= link_to "Back to all bikes", bike_path(@bike), class: "btn-flat" %>
+      <%= link_to "Edit", "#", class: "btn-edit" %>
+      <%= link_to "Delete", "#", class: "btn-delete" %>
     </div>
   </div>
 
@@ -48,4 +50,9 @@
   <% else %>
     <%= image_tag "bike_default.png" %>
   <% end %>
+</div>
+
+<div class="reviews-section">
+  <h2>Reviews</h2>
+  <p>Review section where to check and add reviews.</p>
 </div>

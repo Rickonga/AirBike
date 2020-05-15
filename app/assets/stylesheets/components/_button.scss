@@ -48,3 +48,44 @@
 .navbar-button:hover {
   text-decoration: underline;
 }
+
+// Victors buttons
+
+.btn-goback {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #74d4c0;
+  transition: background 0.3s ease;
+}
+
+.btn-goback :hover {
+  background: #5E72AD;
+  color: white;
+}
+
+.btn-edit {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #17a2b8;
+  transition: background 0.3s ease;
+}
+
+.btn-edit :hover {
+  background: #5E72AD;
+  color: white;
+}
+
+.btn-delete {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #ffc107;
+  transition: background 0.3s ease;
+}
+
+.btn-delete :hover {
+  background: #5E72AD;
+  color: white;
+}
