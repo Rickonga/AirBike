@@ -6,6 +6,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
+    true
+  end
+
+  def show?
+    true
     user.present?
   end
 end

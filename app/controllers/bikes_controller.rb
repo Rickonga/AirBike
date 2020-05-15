@@ -43,10 +43,11 @@ class BikesController < ApplicationController
 
   def show
     authorize @bike
-    @marker = {
+    @marker = [{
       lat: @bike.latitude,
       lng: @bike.longitude
-    }
+    }]
+    @existing_booking = Booking.find_by(bike_id: @bike.id)
     @booking = Booking.where(bike: @bike, user: current_user).first || Booking.new
     @review = Review.new
   end

@@ -1,7 +1,7 @@
 <div class="container-map">
   <div id="map"
        style="width: 100%; height: 100%;"
-       data-marker="<%= @marker.to_json %>"
+       data-markers="<%= @marker.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
@@ -9,10 +9,12 @@
 <div class="container-card">
 
   <div class="card">
-    <h1><%= @bike.model %></h1>
+
 
     <div>
+
       <ul>
+        <li><h1><%= @bike.model %></h1></li>
         <li><b>Model </b> <%= @bike.model %></li>
         <li><b>Description</b> <%= @bike.description %></li>
         <li><b>Address</b> <%= @bike.address %></li>
@@ -34,12 +36,25 @@
     </div>
   </div>
 
-  <div class="card p-3">
-    <h3>Book this bike</h3>
-    <%= render './shared/booking-date' %>
-    <p><%= @bike.price %>/€ day</p>
-    <h4># days: <%= @days = 4 %></h4>
-    <h4>Total price: <%= total_price = @bike.price * @days %> €</h4>
+  <div class="card p-3 mr-3">
+    <div>
+      <h3>Book this bike</h3>
+      <%= render './shared/booking-date' %>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <p>Price per day: </p>
+      <p><b><%= @bike.price %>€</b></p>
+    </div>
+    <div class="d-flex w-100 justify-content-between border-bottom">
+      <p>Number of days:</p>
+      <% if @existing_booking %>
+      <p><b><%= @days = (@existing_booking.end_date - @existing_booking.start_date).to_i %></b></p>
+    </div>
+    <div class="d-flex w-100 pt-4 justify-content-between">
+      <p><b>Total price: </b></p>
+      <p><b><%= @total_price = @bike.price * @days %>€</b></p>
+    </div>
+    <% end %>
   </div>
 
 </div>
