@@ -47,7 +47,8 @@ class BikesController < ApplicationController
       lat: @bike.latitude,
       lng: @bike.longitude
     }
-    @booking = Booking.new
+    @booking = Booking.where(bike: @bike, user: current_user).first || Booking.new
+    @review = Review.new
   end
 
   def edit

@@ -56,6 +56,28 @@
 </div>
 
 <div class="reviews-section">
-  <h2>Reviews</h2>
+  <h2>
+    See the <%= pluralize @booking.reviews.size, "review" %>
+  </h2>
   <p>Review section where to check and add reviews.</p>
+
+  <% if @bike.reviews.blank? %>
+    <p>Be the first to leave a review for a booking with <%= @bike.model %>
+    advertised on this page.</p>
+  <% else %>
+    <% @bike.reviews.each do |review| %>
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+
+  <% if @booking.persisted? %>
+    <%= simple_form_for([ @booking, @review ]) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.input :rating, as: :integer %>
+      <%= f.button :submit %>
+    <% end %>
+  <% end %>
+
+
 </div>
