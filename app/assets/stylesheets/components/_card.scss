@@ -1,7 +1,7 @@
 .card-trip {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  color: rgba(30,30,30,0.7);
+  color: $font-color;
   height: 310px;
   border-radius: 5px;
   text-decoration: none;
@@ -24,14 +24,14 @@
   &:after{
     top:-1px;
     left:-1px;
-    border-top:5px solid #74D4C0;
-    border-left:5px solid #74D4C0;
+    border-top:5px solid $sidebar-navbar;
+    border-left:5px solid $sidebar-navbar;
   }
   &:before{
     bottom:-1px;
     right:-1px;
-    border-bottom:5px solid #74D4C0;
-    border-right:5px solid #74D4C0;
+    border-bottom:5px solid $sidebar-navbar;
+    border-right:5px solid $sidebar-navbar;
   }
   &:hover{
     border-top-right-radius:0px;
