@@ -1,9 +1,8 @@
 $lightgrey: #202020;
 
 .icon-size-color-lense {
-  color: black;
+  color: $font-color;
   font-size: 200px;
-  opacity: 0.2;
   padding: 8px;
 }
 
@@ -17,5 +16,5 @@ $lightgrey: #202020;
   font-weight: bold;
   text-align: center;
   margin: 16px;
-  color: rgba(30,30,30,0.7);
+  color: $font-color;
 }

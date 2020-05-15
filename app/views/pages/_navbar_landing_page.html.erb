@@ -1,13 +1,14 @@
-<nav class="d-flex fixed-top" id="custom-navbar"=>
-  <ul class="list-group list-group-horizontal flex-grow-1">
+<nav class="fixed-top" id="custom-navbar"=>
+  <ul class="list-group list-group-horizontal d-flex justify-content-between">
     <li class="nav-item custom-list" id="custom-navbar">
-      <%= link_to bikes_path, class: "d-flex w-100 justify-content-center align-items-center" do %>
+      <%= link_to bikes_path, class: "d-flex w-100 justify-content-center align-items-center navbar-button" do %>
         <%= image_tag "bike_default.png", width: 50, height: 50, class: "mx-2 margin-bottom: 0.0rem" %>
         <h1 class="mx-2">AirBike</h1>
       <% end %>
     </li>
-  </ul>
-  <ul class="list-group list-group-horizontal">
+    <li class="d-none" id="search-container">
+      <%= render 'navbar_searchbar' %>
+    </li>
     <li class="custom-list" id="custom-navbar">
       <% if user_signed_in? %>
         <li class="nav-item dropdown custom-list">

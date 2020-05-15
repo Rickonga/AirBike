@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.price = @bike.price
     @booking.user = current_user
+# <<<<<<< HEAD
     @booking.bike = @bike
     if @booking.save
       redirect_to bike_booking_path(@bike, @booking)
@@ -31,6 +32,13 @@ class BookingsController < ApplicationController
       redirect_to bike_path(@bike)
     end
     authorize @booking
+# =======
+#     if @booking.save
+#       redirect_to bike_path(@bike)
+#     else
+#       render "bikes/show"
+#     end
+# >>>>>>> 5cbab61bdf85857355f3e0a2bcedf6ad6bac3f56
   end
 
   private

@@ -48,7 +48,8 @@ class BikesController < ApplicationController
       lng: @bike.longitude
     }]
     @existing_booking = Booking.find_by(bike_id: @bike.id)
-    @booking = Booking.new
+    @booking = Booking.where(bike: @bike, user: current_user).first || Booking.new
+    @review = Review.new
   end
 
   def edit

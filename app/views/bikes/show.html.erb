@@ -9,28 +9,30 @@
 <div class="container-card">
 
   <div class="card">
-    <h1><%= @bike.model %></h1>
+
 
     <div>
+
       <ul>
+        <li><h1><%= @bike.model %></h1></li>
         <li><b>Model </b> <%= @bike.model %></li>
         <li><b>Description</b> <%= @bike.description %></li>
         <li><b>Address</b> <%= @bike.address %></li>
         <li><b>Brand</b> <%= @bike.brand %></li>
         <li><b>Price per day</b> <%= @bike.price %> €</li>
-        <li><b>Cateroy</b> <%= @bike.category_id %></li>
+        <li><b>Category</b> <%= @bike.category_id %></li>
         <li><b>Owner</b> <%= @bike.user_id %></li>
       </ul>
     </div>
 
     <div>
       <% if policy(@bike).update? %>
-        <%= link_to "Edit", edit_bike_path(@bike) %>
+        <%= link_to "Edit", edit_bike_path(@bike), class: "btn-edit" %>
       <% end %>
       <% if policy(@bike).destroy? %>
-        <%= link_to "Delete", bike_path(@bike), method: :delete %>
+        <%= link_to "Delete", bike_path(@bike), method: :delete, class: "btn-delete" %>
       <% end %>
-      <%= link_to "Back to all bikes", bike_path(@bike), class: "btn btn-flat" %>
+      <%= link_to "Back to all bikes", bikes_path, class: "btn-flat" %>
     </div>
   </div>
 
@@ -64,4 +66,31 @@
   <% else %>
     <%= image_tag "bike_default.png" %>
   <% end %>
+</div>
+
+<div class="reviews-section">
+  <h2>
+    See the <%= pluralize @booking.reviews.size, "review" %>
+  </h2>
+  <p>Review section where to check and add reviews.</p>
+
+  <% if @bike.reviews.blank? %>
+    <p>Be the first to leave a review for a booking with <%= @bike.model %>
+    advertised on this page.</p>
+  <% else %>
+    <% @bike.reviews.each do |review| %>
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+
+  <% if @booking.persisted? %>
+    <%= simple_form_for([ @booking, @review ]) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.input :rating, as: :integer %>
+      <%= f.button :submit %>
+    <% end %>
+  <% end %>
+
+
 </div>

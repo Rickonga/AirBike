@@ -28,6 +28,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/themes/airbnb.css';
 import rangePlugin from 'flatpickr/dist/plugins/rangePlugin';
+// import "../plugins/flatpickr";
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -41,4 +43,11 @@ document.addEventListener('turbolinks:load', () => {
     altInput: true,
     "plugins": [new rangePlugin({ input: "#range_end"})]
   });
+});
+
+
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
 });

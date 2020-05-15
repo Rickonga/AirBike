@@ -9,23 +9,27 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 16px;
+  padding: 24px;
 }
 
 .container-card ul {
   list-style: none;
 }
 
-.photo-gallery img {
+.card {
+  padding: 16px;
+}
+
+#photo-gallery {
+  display: grid;
+  grid-gap: 16px;
+  padding: 40px;
+}
+
+#photo-gallery img {
   max-width:100%;
   height:auto;
 }
-
-.photo-gallery {
-  display: grid;
-  grid-gap: 16px;
-}
-
-
 
 .btn-flat {
   color: white;
@@ -38,4 +42,14 @@
 .btn-flat:hover {
   background: #1BCB7F;
   color: white;
+}
+
+.reviews-section {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 2px;
+  padding: 16px;
+  margin: 24px;
+  word-wrap: break-word;
 }
