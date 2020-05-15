@@ -25,14 +25,12 @@
 
     <div>
       <% if policy(@bike).update? %>
-        <%= link_to "Edit", edit_bike_path(@bike) %>
+        <%= link_to "Edit", edit_bike_path(@bike), class: "btn-edit" %>
       <% end %>
       <% if policy(@bike).destroy? %>
-        <%= link_to "Delete", bike_path(@bike), method: :delete %>
+        <%= link_to "Delete", bike_path(@bike), method: :delete, class: "btn-delete" %>
       <% end %>
-      <%= link_to "Back to all bikes", bike_path(@bike), class: "btn-flat" %>
-      <%= link_to "Edit", "#", class: "btn-edit" %>
-      <%= link_to "Delete", "#", class: "btn-delete" %>
+      <%= link_to "Back to all bikes", bikes_path, class: "btn-flat" %>
     </div>
   </div>
 
